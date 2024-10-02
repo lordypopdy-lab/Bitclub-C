@@ -26,7 +26,8 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Bitblub Home Page
+        Bitblub Home Page 
+        <button type="button">Click Me</button>
       </p>
     </>
   )
