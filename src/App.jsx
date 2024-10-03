@@ -73,6 +73,12 @@ import {
     createRoutesFromElements
 } from 'react-router-dom'
 
+import '../src/fonts/fonts.css'
+import '../src/fonts/font-icons.css'
+import '../src/css/bootstrap.min.css'
+import '../src/css/styles.css'
+import '../src/css/swiper-bundle.min.css'
+
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>

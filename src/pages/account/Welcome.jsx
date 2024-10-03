@@ -1,33 +1,45 @@
 import React from 'react'
 import boarding1 from "../../images/banner/boarding1.jpg"
 import logo144 from "../../images/logo/logo144.png"
-import '../../fonts/fonts.css'
-import '../../fonts/font-icons.css'
-import '../../css/bootstrap.min.css'
-import '../../css/styles.css'
-import '../../css/swiper-bundle.min.css'
 
 import { useEffect } from 'react'
+import {
+  Preloader,
+  showNoti,
+  togglePassword,
+  clearItem,
+  clearInput,
+  backPage,
+  pressToggle,
+  cusSelect,
+  changeValue,
+  clickModalSecond,
+  loadMoreItems,
+  tabSlide,
+  hidePopupNoti,
+  activeSuggest
+} from "../utils/Properties"
 
 const Welcome = () => {
 
-  useEffect(()=>{
-    const preloaderTimeout = setTimeout(() => {
-      const preloaderElement = document.querySelector(".preload");
-      if (preloaderElement) {
-        preloaderElement.style.transition = "opacity 0.6s";
-        preloaderElement.style.opacity = 0;
+  useEffect(() => {
+    Preloader();
+    showNoti();
+    togglePassword();
+    clearInput();
+    clearItem();
+    backPage();
+    pressToggle();
+    cusSelect();
+    changeValue();
+    clickModalSecond();
+    // loadMoreItems();
+    tabSlide();
+    hidePopupNoti();
+    activeSuggest();
+  }, [])
 
-        // Remove the element after the fade-out effect completes
-        setTimeout(() => {
-          preloaderElement.remove();
-        }, 600); // Match the duration of the fadeOut effect
-      }
-    }, 500);
-
-    // Cleanup timeout when the component unmounts
-    return () => clearTimeout(preloaderTimeout);
-  },[])
+  showNoti();
   return (
     <>
       {/* <!-- preloade --> */}

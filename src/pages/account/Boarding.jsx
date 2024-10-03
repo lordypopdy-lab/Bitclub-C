@@ -1,9 +1,48 @@
+import boarding2 from "../../images/banner/boarding2.jpg"
+import logo144 from "../../images/logo/logo144.png"
+
+import { useEffect } from "react"
+import {
+  Preloader,
+  showNoti,
+  togglePassword,
+  clearItem,
+  clearInput,
+  backPage,
+  pressToggle,
+  cusSelect,
+  changeValue,
+  clickModalSecond,
+  loadMoreItems,
+  tabSlide,
+  hidePopupNoti,
+  activeSuggest
+} from "../utils/Properties"
+
+
 const Boarding = () => {
+  useEffect(() => {
+    Preloader();
+    showNoti();
+    togglePassword();
+    clearInput();
+    clearItem();
+    backPage();
+    pressToggle();
+    cusSelect();
+    changeValue();
+    clickModalSecond();
+    // loadMoreItems();
+    tabSlide();
+    hidePopupNoti();
+    activeSuggest();
+  }, [])
+
   return (
     <>
       {/* <!-- preloade --> */}
       <div className="preload preload-container">
-        <div className="preload-logo" style={{ backgroundImage: `url('/src/images/logo/144.png')` }}>
+        <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
           <div className="spinner"></div>
         </div>
       </div>
@@ -12,7 +51,7 @@ const Boarding = () => {
         <div className="tf-container">
           <div className="d-flex flex-column min-vh-100 justify-content-between">
             <div className="banner-boarding2 mt-20">
-              <img src="/src/images/banner/boarding2.jpg" alt="img" />
+              <img src={boarding2} alt="img" />
               <svg xmlns="http://www.w3.org/2000/svg" width="375" height="371" viewBox="0 0 390 371" fill="none">
                 <g opacity="0.8" filter="url(#filter0_f_1_12104)">
                   <path d="M296.173 185.722C185.542 269.933 258.671 269.933 212.41 269.933C166.148 269.933 255.608 286.881 128.646 185.722C1.68354 84.5628 166.148 101.511 212.41 101.511C258.671 101.511 406.804 101.511 296.173 185.722Z" fill="url(#paint0_linear_1_12104)" />
