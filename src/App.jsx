@@ -66,77 +66,86 @@ import { UserContextProvider } from '../context/UserContext';
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+    Route,
+    RouterProvider,
+    createBrowserRouter,
+    createRoutesFromElements
+} from 'react-router-dom'
+
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route>
+            <Route path='/Send' element={<Send />} />
+            <Route path='/Profile' element={<Profile />} />
+            <Route path='/UserInfo' element={<UserInfo />} />
+            <Route path='/Earn' element={<Earn />} />
+            <Route path='/Otp02' element={<Opt02 />} />
+            <Route path='/Wallet' element={<Wallet />} />
+            <Route index element={<Welcome />} />
+            <Route path='/Home' element={<Home />} />
+            <Route path='/Option' element={<Option />} />
+            <Route path='/terms' element={<Terms />} />
+            <Route path='/policy' element={<Policy />} />
+            <Route path='/FaceID' element={<FaceID />} />
+            <Route path='/FaceIdDone' element={<FaceIdDone />} />
+            <Route path='/ListBlog' element={<ListBlog />} />
+            <Route path='/Recharge' element={<Recharge />} />
+            <Route path='/Exchange' element={<Exchange />} />
+            <Route path='/Register' element={<Register />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/VerifyID' element={<VerifyID />} />
+            <Route path='/Boarding2' element={<Boarding2 />} />
+            <Route path='/BlogDetail' element={<BlogDetail />} />
+            <Route path='/Boarding' element={<Boarding />} />
+            <Route path='/AddressScan' element={<AddresScan />} />
+            <Route path='/BuyQuantity' element={<BuyQuantity />} />
+            <Route path='/NewPassword' element={<NewPassword />} />
+            <Route path='/CameraScan' element={<CameraScan />} />
+            <Route path='/CameraDone' element={<CameraDone />} />
+            <Route path='/TellUsMore' element={<TellUsMore />} />
+            <Route path='/ContractTwo' element={<ContractTwo />} />
+            <Route path='/ContractFour' element={<ContractFour />} />
+            <Route path='/ContractThree' element={<ContractThree />} />
+            <Route path='/ContractOne' element={<ContractOne />} />
+            <Route path='/assetsRatings' element = {<AssetsRatings />} />
+            <Route path='/Verification' element={<Verification />} />
+            <Route path='/CameraSuccess' element={<CameraSuccess />} />
+            <Route path='/TradeExchange' element={<TradeExchange />} />
+            <Route path='/RessetPassword' element={<RessetPassword />} />
+            <Route path='/ChoosePayment' element={<ChoosePayment />} />
+            <Route path='/PaymentComfirm' element={<PaymentComfirm />} />
+            <Route path='/ChooseIdentity' element={<ChooseIdentity />} />
+            <Route path='/VerifyIDScan' element={<VerifyIDScan />} />
+            <Route path='/ChangeName' element={<ChangeName />} />
+            <Route path='/AccountFreez' element={<AccountFreez />} />
+            <Route path='/fetchTokens' element={<TokenFetcher />} />
+            <Route path='/SecurityCenter' element={<SecurityCenter />} />
+            <Route path='/ChangePassword' element={<ChangePassword />} />
+            <Route path='/VerificationDone' element={<VerificationDone />} />
+            <Route path='/withdarawContractOne' element={<WithdrawContractOne />} />
+            <Route path='/withdarawContractTwo' element={<WithdrawContractTwo />} />
+            <Route path="/ContractTwoProfile" element={<ContractTwoProfile />} />
+            <Route path='/ContractOneProfile' element={<ContractOneProfile />} />
+            <Route path='/AddressVerification' element={<AddressVerification />} />
+            <Route path='/VerificationComfirm' element={<VerificationComfirm />} />
+            <Route path='/VerificationAdvance' element={<VerificationAdvance />} />
+            <Route path='/ChooseVerification' element={<ChooseVerification />} />
+            <Route path='/NewPasswordSuccess' element={<NewPasswordSucces />} />
+            <Route path='/SellQuantity' element={<SellQuantity />} />
+            <Route path='/IdentityVerification' element={<IdentityVerification />} />
+            <Route path='/ExchangeTradeApprove' element={<ExchangeTradeApprove />} />
+        </Route>
+    )
+)
 
 const App = () => {
-  return (
-    <UserContextProvider>
-      <Router>
-        <Routes>
-          <Route path='/Send' element={<Send />} />
-          <Route path='/Profile' element={<Profile />} />
-          <Route path='/UserInfo' element={<UserInfo />} />
-          <Route path='/Earn' element={<Earn />} />
-          <Route path='/Otp02' element={<Opt02 />} />
-          <Route path='/Wallet' element={<Wallet />} />
-          <Route index element={<Welcome />} />
-          <Route path='/Home' element={<Home />} />
-          <Route path='/Option' element={<Option />} />
-          <Route path='/terms' element={<Terms />} />
-          <Route path='/policy' element={<Policy />} />
-          <Route path='/FaceID' element={<FaceID />} />
-          <Route path='/FaceIdDone' element={<FaceIdDone />} />
-          <Route path='/ListBlog' element={<ListBlog />} />
-          <Route path='/Recharge' element={<Recharge />} />
-          <Route path='/Exchange' element={<Exchange />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/VerifyID' element={<VerifyID />} />
-          <Route path='/Boarding2' element={<Boarding2 />} />
-          <Route path='/BlogDetail' element={<BlogDetail />} />
-          <Route path='/Boarding' element={<Boarding />} />
-          <Route path='/AddressScan' element={<AddresScan />} />
-          <Route path='/BuyQuantity' element={<BuyQuantity />} />
-          <Route path='/NewPassword' element={<NewPassword />} />
-          <Route path='/CameraScan' element={<CameraScan />} />
-          <Route path='/CameraDone' element={<CameraDone />} />
-          <Route path='/TellUsMore' element={<TellUsMore />} />
-          <Route path='/ContractTwo' element={<ContractTwo />} />
-          <Route path='/ContractFour' element={<ContractFour />} />
-          <Route path='/ContractThree' element={<ContractThree />} />
-          <Route path='/ContractOne' element={<ContractOne />} />
-          <Route path='/assetsRatings' element={<AssetsRatings />} />
-          <Route path='/Verification' element={<Verification />} />
-          <Route path='/CameraSuccess' element={<CameraSuccess />} />
-          <Route path='/TradeExchange' element={<TradeExchange />} />
-          <Route path='/RessetPassword' element={<RessetPassword />} />
-          <Route path='/ChoosePayment' element={<ChoosePayment />} />
-          <Route path='/PaymentComfirm' element={<PaymentComfirm />} />
-          <Route path='/ChooseIdentity' element={<ChooseIdentity />} />
-          <Route path='/VerifyIDScan' element={<VerifyIDScan />} />
-          <Route path='/ChangeName' element={<ChangeName />} />
-          <Route path='/AccountFreez' element={<AccountFreez />} />
-          <Route path='/fetchTokens' element={<TokenFetcher />} />
-          <Route path='/SecurityCenter' element={<SecurityCenter />} />
-          <Route path='/ChangePassword' element={<ChangePassword />} />
-          <Route path='/VerificationDone' element={<VerificationDone />} />
-          <Route path='/withdarawContractOne' element={<WithdrawContractOne />} />
-          <Route path='/withdarawContractTwo' element={<WithdrawContractTwo />} />
-          <Route path="/ContractTwoProfile" element={<ContractTwoProfile />} />
-          <Route path='/ContractOneProfile' element={<ContractOneProfile />} />
-          <Route path='/AddressVerification' element={<AddressVerification />} />
-          <Route path='/VerificationComfirm' element={<VerificationComfirm />} />
-          <Route path='/VerificationAdvance' element={<VerificationAdvance />} />
-          <Route path='/ChooseVerification' element={<ChooseVerification />} />
-          <Route path='/NewPasswordSuccess' element={<NewPasswordSucces />} />
-          <Route path='/SellQuantity' element={<SellQuantity />} />
-          <Route path='/IdentityVerification' element={<IdentityVerification />} />
-          <Route path='/ExchangeTradeApprove' element={<ExchangeTradeApprove />} />
-        </Routes>
-      </Router>
-      <Toaster position='top-right' toastOptions={{ duration: 4000 }} />
-    </UserContextProvider>
-  )
+    return (
+            <UserContextProvider>
+            <RouterProvider router={router} />
+            <Toaster position='top-right' toastOptions={{ duration: 4000 }} />
+            </UserContextProvider>
+    )
 }
 
 export default App
