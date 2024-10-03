@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { UserContext } from "../../../context/UserContext"
-import { GoogleLogout } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
 const Profile = () => {
     const { user } = useContext(UserContext);
     

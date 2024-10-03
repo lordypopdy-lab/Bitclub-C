@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import toast from "react-hot-toast";
 import FadeLoader from 'react-spinners/FadeLoader';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
 import { gapi } from "gapi-script";
 import { jwtDecode } from "jwt-decode";
 
