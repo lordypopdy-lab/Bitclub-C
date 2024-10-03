@@ -1,6 +1,11 @@
 import React from 'react'
 import boarding1 from "../../images/banner/boarding1.jpg"
 import logo144 from "../../images/logo/logo144.png"
+import '../../fonts/fonts.css'
+import '../../fonts/font-icons.css'
+import '../../css/bootstrap.min.css'
+import '../../css/styles.css'
+import '../../css/swiper-bundle.min.css'
 
 const Welcome = () => {
   return (
