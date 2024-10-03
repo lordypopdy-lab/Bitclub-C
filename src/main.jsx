@@ -11,6 +11,8 @@ import App from './App.jsx'
 // import "../src/js/line-chart.js"
 // import "../src/js/chart.bundle.min.js"
 // import "../src/js/swiper-bundle.min.js"
+// import "../src/js/bootstrap.min.js"
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

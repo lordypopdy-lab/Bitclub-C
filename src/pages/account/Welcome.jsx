@@ -11,11 +11,11 @@ const Welcome = () => {
   return (
     <>
       {/* <!-- preloade --> */}
-      <div className="preload preload-container">
+      {/* <div className="preload preload-container">
         <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
           <div className="spinner"></div>
         </div>
-      </div>
+      </div> */}
       {/* <!-- /preload -->  */}
       <div className="header">
         <a href="/Login" className="right">Skip</a>
