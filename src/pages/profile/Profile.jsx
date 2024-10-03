@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { UserContext } from "../../../context/UserContext"
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogout } from '@react-oauth/google';
 const Profile = () => {
     const { user } = useContext(UserContext);
     
@@ -178,12 +178,12 @@ const Profile = () => {
                         <ul className="mt-20 pb-16">
                             <li data-bs-dismiss="modal"><div className="d-flex justify-content-between align-items-center gap-8 text-large item-check active">Account 1 <i className="icon icon-check-circle"></i> </div></li>
                             <li className="mt-4" data-bs-dismiss="modal"><div className="d-flex  justify-content-between gap-8 text-large item-check">
-                                <GoogleLogout
+                                {/* <GoogleLogout
                                     clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                                     buttonText="Logout"
                                     onLogoutSuccess={logout}
                                 >
-                                </GoogleLogout>
+                                </GoogleLogout> */}
                                 <i className="icon icon-check-circle"></i></div></li>
                         </ul>
                     </div>
