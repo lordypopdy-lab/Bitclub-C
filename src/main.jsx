@@ -13,8 +13,12 @@ import App from './App.jsx'
 // import "../src/js/swiper-bundle.min.js"
 // import "../src/js/bootstrap.min.js"
 
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 createRoot(document.getElementById('root')).render(
+  <GoogleOAuthProvider clientId="170268353832-0fn4qbgklemeb9s0o5elvi99ronia9ov.apps.googleusercontent.com">
   <StrictMode>
     <App />
   </StrictMode>,
+  </GoogleOAuthProvider>
 )

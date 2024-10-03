@@ -2,14 +2,48 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import toast from "react-hot-toast";
 import FadeLoader from 'react-spinners/FadeLoader';
-import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import { gapi } from "gapi-script";
 import { jwtDecode } from "jwt-decode";
+import google from "../../images/logo/google.jpg"
+import logo144 from "../../images/logo/logo144.png"
+
+
+import {
+    Preloader,
+    showNoti,
+    togglePassword,
+    clearItem,
+    clearInput,
+    backPage,
+    pressToggle,
+    cusSelect,
+    changeValue,
+    clickModalSecond,
+    loadMoreItems,
+    tabSlide,
+    hidePopupNoti,
+    activeSuggest
+} from "../utils/Properties"
 
 const Login = () => {
-const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        Preloader();
+        showNoti();
+        togglePassword();
+        clearInput();
+        clearItem();
+        backPage();
+        pressToggle();
+        cusSelect();
+        changeValue();
+        clickModalSecond();
+        // loadMoreItems();
+        tabSlide();
+        hidePopupNoti();
+        activeSuggest();
         //////////TOKEN FETCHER////////////
         const fetcher = async () => {
             try {
@@ -64,43 +98,45 @@ const [loading, setLoading] = useState(false);
         }
     }
 
-
-    const handleLoginSuccess = async (response) => {
-        setLoading(true)
-        const { tokenId } = response;
-        const decoded = jwtDecode(tokenId);
-        const { email, name, picture, email_verified } = decoded
-
-        try {
-            if (email_verified) {
-                const { data } = await axios.post('/loginGoggle', { email, name, picture });
-                if (data) {
-                    toast.success("Login Successfully, Welcome!");
-                    setLoading(false)
-                    localStorage.setItem('email', email);
-                    localStorage.setItem('pin', data._id);
-                    location.href = '/Home'
-                } else {
-                    toast.error("Login Error");
-                    setLoading(false)
-                }
-            }
-        } catch (error) {
-            console.log("Error, Login With Google");
-            toast.error("Login failed")
-            setLoading(false)
-        }
-    };
-
     const handleLoginFailure = (response) => {
         console.log('Login Failed:', response);
     };
+
+    const login = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            setLoading(true)
+            const { access_token } = tokenResponse;
+            const decoded = jwtDecode(access_token);
+            const { email, name, picture, email_verified } = decoded
+            console.log(decoded);
+    
+            // try {
+            //     if (email_verified) {
+            //         const { data } = await axios.post('/loginGoggle', { email, name, picture });
+            //         if (data) {
+            //             toast.success("Login Successfully, Welcome!");
+            //             setLoading(false)
+            //             localStorage.setItem('email', email);
+            //             localStorage.setItem('pin', data._id);
+            //             location.href = '/Home'
+            //         } else {
+            //             toast.error("Login Error");
+            //             setLoading(false)
+            //         }
+            //     }
+            // } catch (error) {
+            //     console.log("Error, Login With Google");
+            //     toast.error("Login failed")
+            //     setLoading(false)
+            // }
+        }
+    });
 
     return (
         <>
             {/* <!-- preloade --> */}
             <div className="preload preload-container">
-                <div className="preload-logo" style={{ backgroundImage: `url('/src/images/logo/144.png')` }}>
+                <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
                     <div className="spinner"></div>
                 </div>
             </div>
@@ -114,16 +150,16 @@ const [loading, setLoading] = useState(false);
                         <h2 className="text-center">Login Bitclub.</h2>
                         <ul className="mt-40 socials-login">
                             <li className="mt-12">
-                                <GoogleLogin
-                                    render={renderProps => (
-                                        <a className="tf-btn md social dark" onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="/src/images/logo/google.jpg" alt="img" />  Sign in with Google</a>
-                                    )}
-                                    clientId="170268353832-0fn4qbgklemeb9s0o5elvi99ronia9ov.apps.googleusercontent.com"
+                                {/* <GoogleLogin
+                                    // render={renderProps => (
+                                    //    
+                                    // )}
                                     onSuccess={handleLoginSuccess}
-                                    onFailure={handleLoginFailure}
-                                    cookiePolicy={'single_host_origin'}
+                                    onError={handleLoginFailure}
                                 >
                                 </GoogleLogin>
+                          */}
+                                <a className="tf-btn md social dark" onClick={login}><img src="/src/images/logo/google.jpg" alt="img" />  Sign in with Google</a>
                             </li>
 
                         </ul>
