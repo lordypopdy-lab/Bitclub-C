@@ -7,15 +7,35 @@ import '../../css/bootstrap.min.css'
 import '../../css/styles.css'
 import '../../css/swiper-bundle.min.css'
 
+import { useEffect } from 'react'
+
 const Welcome = () => {
+
+  useEffect(()=>{
+    const preloaderTimeout = setTimeout(() => {
+      const preloaderElement = document.querySelector(".preload");
+      if (preloaderElement) {
+        preloaderElement.style.transition = "opacity 0.6s";
+        preloaderElement.style.opacity = 0;
+
+        // Remove the element after the fade-out effect completes
+        setTimeout(() => {
+          preloaderElement.remove();
+        }, 600); // Match the duration of the fadeOut effect
+      }
+    }, 500);
+
+    // Cleanup timeout when the component unmounts
+    return () => clearTimeout(preloaderTimeout);
+  },[])
   return (
     <>
       {/* <!-- preloade --> */}
-      {/* <div className="preload preload-container">
+      <div className="preload preload-container">
         <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
           <div className="spinner"></div>
         </div>
-      </div> */}
+      </div>
       {/* <!-- /preload -->  */}
       <div className="header">
         <a href="/Login" className="right">Skip</a>
