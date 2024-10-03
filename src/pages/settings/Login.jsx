@@ -159,7 +159,7 @@ const Login = () => {
                                 >
                                 </GoogleLogin>
                           */}
-                                <a className="tf-btn md social dark" onClick={login}><img src="/src/images/logo/google.jpg" alt="img" />  Sign in with Google</a>
+                                <a className="tf-btn md social dark" onClick={login}><img src={google} alt="img" />  Sign in with Google</a>
                             </li>
 
                         </ul>
