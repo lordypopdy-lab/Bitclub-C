@@ -1,10 +1,13 @@
 import React from 'react'
+import boarding1 from "../../images/banner/boarding1.jpg"
+import logo144 from "../../images/logo/logo144.png"
+
 const Welcome = () => {
   return (
     <>
       {/* <!-- preloade --> */}
       <div className="preload preload-container">
-        <div className="preload-logo" style={{ backgroundImage: `url('./src/images/logo/144.png')` }}>
+        <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
           <div className="spinner"></div>
         </div>
       </div>
@@ -17,7 +20,7 @@ const Welcome = () => {
         <div className="tf-container">
           <div className="d-flex flex-column min-vh-100 justify-content-between">
             <div className="banner-boarding mt-30">
-              <img src='./src/images/banner/boarding1.jpg' alt="img" />
+              <img src={boarding1} alt="img" />
               <svg xmlns="http://www.w3.org/2000/svg" width="375" height="440" viewBox="0 0 390 440" fill="none">
                 <g filter="url(#filter0_f_1_12302)">
                   <path d="M317.593 220.084C162.184 337.75 264.912 337.75 199.927 337.75C134.941 337.75 260.61 361.432 82.2598 220.084C-96.0904 78.7354 134.941 102.417 199.927 102.417C264.912 102.417 473.002 102.417 317.593 220.084Z" fill="url(#paint0_linear_1_12302)" />
