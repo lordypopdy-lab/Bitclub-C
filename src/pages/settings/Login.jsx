@@ -2,12 +2,11 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import toast from "react-hot-toast";
 import FadeLoader from 'react-spinners/FadeLoader';
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import { gapi } from "gapi-script";
-import { jwtDecode } from "jwt-decode";
 import google from "../../images/logo/google.jpg"
 import logo144 from "../../images/logo/logo144.png"
-
+import { jwtDecode } from "jwt-decode";
 
 import {
     Preloader,
@@ -28,7 +27,6 @@ import {
 
 const Login = () => {
     const [loading, setLoading] = useState(false);
-
     useEffect(() => {
         Preloader();
         showNoti();
@@ -97,40 +95,33 @@ const Login = () => {
 
         }
     }
+    const login = async (credentialResponse) => {
+        setLoading(true)
+        const { credential } = credentialResponse; 
+        const decoded = jwtDecode(credential);
+        const { email, name, picture, email_verified } = decoded
 
-    const handleLoginFailure = (response) => {
-        console.log('Login Failed:', response);
-    };
-
-    const login = useGoogleLogin({
-        onSuccess: async (tokenResponse) => {
-            setLoading(true)
-            const { access_token } = tokenResponse;
-            const decoded = jwtDecode(access_token);
-            const { email, name, picture, email_verified } = decoded
-            console.log(decoded);
-    
-            // try {
-            //     if (email_verified) {
-            //         const { data } = await axios.post('/loginGoggle', { email, name, picture });
-            //         if (data) {
-            //             toast.success("Login Successfully, Welcome!");
-            //             setLoading(false)
-            //             localStorage.setItem('email', email);
-            //             localStorage.setItem('pin', data._id);
-            //             location.href = '/Home'
-            //         } else {
-            //             toast.error("Login Error");
-            //             setLoading(false)
-            //         }
-            //     }
-            // } catch (error) {
-            //     console.log("Error, Login With Google");
-            //     toast.error("Login failed")
-            //     setLoading(false)
-            // }
+        try {
+            if (email_verified) {
+                const { data } = await axios.post('/loginGoogle', { email, name, picture });
+                if (data) {
+                    toast.success("Login Successfully, Welcome!");
+                    setLoading(false)
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('pin', data._id);
+                    location.href = '/Home'
+                } else {
+                    toast.error("Login Error");
+                    setLoading(false)
+                }
+            }
+        } catch (error) {
+            console.log("Error, Login With Google");
+            toast.error("Login failed")
+            setLoading(false)
         }
-    });
+       
+    }
 
     return (
         <>
@@ -150,16 +141,16 @@ const Login = () => {
                         <h2 className="text-center">Login Bitclub.</h2>
                         <ul className="mt-40 socials-login">
                             <li className="mt-12">
-                                {/* <GoogleLogin
-                                    // render={renderProps => (
-                                    //    
-                                    // )}
-                                    onSuccess={handleLoginSuccess}
-                                    onError={handleLoginFailure}
-                                >
-                                </GoogleLogin>
-                          */}
-                                <a className="tf-btn md social dark" onClick={login}><img src={google} alt="img" />  Sign in with Google</a>
+                                <a className="tf-btn md p-2 social dark">
+                                    <GoogleLogin
+                                        theme="filled_black"
+                                        onSuccess={credentialResponse => {
+                                            login(credentialResponse);
+                                        }}
+                                        onError={() => {
+                                            console.log('Login Failed');
+                                        }}
+                                    /></a>
                             </li>
 
                         </ul>

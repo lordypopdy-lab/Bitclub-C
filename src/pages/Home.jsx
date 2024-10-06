@@ -20,6 +20,25 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
+import {
+    Preloader,
+    showNoti,
+    togglePassword,
+    clearItem,
+    clearInput,
+    backPage,
+    pressToggle,
+    cusSelect,
+    changeValue,
+    clickModalSecond,
+    loadMoreItems,
+    tabSlide,
+    hidePopupNoti,
+    activeSuggest
+} from "./utils/Properties"
+
+import logo144 from "../images/logo/logo144.png"
+
 const Home = () => {
     const e = localStorage.getItem('email');
     if (!e) {
@@ -402,6 +421,20 @@ const Home = () => {
     }
     tokenFormatter();
 
+    Preloader();
+    showNoti();
+    togglePassword();
+    clearInput();
+    clearItem();
+    backPage();
+    pressToggle();
+    cusSelect();
+    changeValue();
+    clickModalSecond();
+    loadMoreItems();
+    tabSlide();
+    hidePopupNoti();
+    activeSuggest();
 
     }, [])
 
@@ -414,7 +447,7 @@ const Home = () => {
         <>
             {/* <!-- preloade --> */}
             <div className="preload preload-container">
-                <div className="preload-logo" style={{ backgroundImage: `url('/src/images/logo/144.png')` }}>
+                <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
                     <div className="spinner"></div>
                 </div>
             </div>

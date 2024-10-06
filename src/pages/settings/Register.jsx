@@ -1,9 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import FadeLoader from 'react-spinners/FadeLoader';
+import logo144 from "../../images/logo/logo144.png"
+import google from "../../images/logo/google.jpg"
+import {
+    Preloader,
+    showNoti,
+    togglePassword,
+    clearItem,
+    clearInput,
+    backPage,
+    pressToggle,
+    cusSelect,
+    changeValue,
+    clickModalSecond,
+    loadMoreItems,
+    tabSlide,
+    hidePopupNoti,
+    activeSuggest
+} from "../utils/Properties"
 
 const Register = () => {
+
+useEffect(()=>{
+    Preloader();
+    showNoti();
+    togglePassword();
+    clearInput();
+    clearItem();
+    backPage();
+    pressToggle();
+    cusSelect();
+    changeValue();
+    clickModalSecond();
+    // loadMoreItems();
+    tabSlide();
+    hidePopupNoti();
+    activeSuggest();
+},[])
+
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({ name: '', email: '', password: '', comfirmPassword: '' })
     const registerUser = async (e) => {
@@ -33,7 +69,7 @@ const Register = () => {
         <>
             {/* <!-- preloade --> */}
             <div className="preload preload-container">
-                <div className="preload-logo" style={{ backgroundImage: `url('/src/images/logo/144.png')` }}>
+                <div className="preload-logo" style={{ backgroundImage: `url(${logo144})` }}>
                     <div className="spinner"></div>
                 </div>
             </div>
@@ -42,11 +78,26 @@ const Register = () => {
             <div className="header fixed-top bg-surface">
                 <a href="#" className="left back-btn"><i className="icon-left-btn"></i></a>
             </div>
+            
             <div className="pt-45">
                 <div className="tf-container">
                     <form onSubmit={registerUser} className="mt-32 mb-16">
-
                         <h2 className="text-center">Register Bitclub.</h2>
+                        <ul className="mt-40 socials-login">
+                            <li className="mt-12">
+                                {/* <GoogleLogin
+                                    // render={renderProps => (
+                                    //    
+                                    // )}
+                                    onSuccess={handleLoginSuccess}
+                                    onError={handleLoginFailure}
+                                >
+                                </GoogleLogin>
+                          */}
+                                <a className="tf-btn md social dark"><img src={google} alt="img" />  SignUp in with Google</a>
+                            </li>
+
+                        </ul>
                         <fieldset className="mt-40">
                             <label className="label-ip">
                                 <p className="mb-8 text-small">Name</p>
