@@ -3,7 +3,7 @@ import axios from "axios";
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
-    axios.defaults.baseURL = 'http://localhost:8000';
+    axios.defaults.baseURL = 'https://bitclub-server.vercel.app/?vercelToolbarCode=T8rrf6lkkN_tPqG';
     axios.defaults.withCredentials = true;
     const [user, setUser] = useState(null);
     useEffect(() => {
