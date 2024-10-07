@@ -63,7 +63,7 @@ import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 import { UserContextProvider } from '../context/UserContext';
 
-axios.defaults.baseURL = 'https://bitclub-server.vercel.app/?vercelToolbarCode=oXHvpAh80Dyf_At';
+axios.defaults.baseURL = 'https://bitclub-server.vercel.app/?vercelToolbarCode=o9jSXDmpbnemsN8';
 axios.defaults.withCredentials = true;
 
 import {
