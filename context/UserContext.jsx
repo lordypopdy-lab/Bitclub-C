@@ -3,7 +3,7 @@ import axios from "axios";
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
-    axios.defaults.baseURL = 'https://b-server-rgmt85fgf-james-projects-2dad54a2.vercel.app/';
+    axios.defaults.baseURL = 'https://b-server-ktlyof51k-james-projects-2dad54a2.vercel.app';
     axios.defaults.withCredentials = true;
     const [user, setUser] = useState(null);
     useEffect(() => {
