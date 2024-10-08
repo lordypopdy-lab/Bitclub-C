@@ -90,7 +90,7 @@ const Login = () => {
             }
         } catch (error) {
             toast.error(error.message)
-            console.log(error.message);
+            console.log(`${error.message} Here...`);
             setLoading(false);
 
         }

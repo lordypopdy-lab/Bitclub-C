@@ -63,7 +63,7 @@ import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 import { UserContextProvider } from '../context/UserContext';
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'https://b-server-ms9mu203e-james-projects-2dad54a2.vercel.app';
 axios.defaults.withCredentials = true;
 
 import {
