@@ -5,7 +5,7 @@ export const TokenContext = createContext({});
 
 export function TokenContextProvider({ children }) {
     const [tokens, setToken] = useState(null);
-    axios.defaults.baseURL = 'https://bitclub-server.vercel.app/?vercelToolbarCode=T8rrf6lkkN_tPqG';
+    axios.defaults.baseURL = 'http://localhost:8000';
     axios.defaults.withCredentials = true;
     useEffect(() => {
         try {

@@ -420,7 +420,6 @@ const Home = () => {
         
     }
     tokenFormatter();
-
     Preloader();
     showNoti();
     togglePassword();
