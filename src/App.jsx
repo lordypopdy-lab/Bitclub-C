@@ -60,7 +60,7 @@ import WithdrawContractOne from './pages/TRX/WithdrawContractOne';
 import ContractTwoProfile from './pages/account/ContractTwoProfile';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'https://b-server-8mkbcimxe-james-projects-2dad54a2.vercel.app/';
+axios.defaults.baseURL = 'https://b-server-ntdxkwqsn-james-projects-2dad54a2.vercel.app';
 axios.defaults.withCredentials = true;
 
 import { Toaster } from 'react-hot-toast';
